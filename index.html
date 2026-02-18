@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of Joshua T. Lopez, Mechanical Technologist specializing in reverse engineering, foundry design, and quality assurance in manufacturing.">
+    <meta name="keywords" content="mechanical engineering, reverse engineering, CAD, Autodesk Inventor, foundry QA, manufacturing">
+    <meta name="author" content="Joshua T. Lopez">
+    <title>Joshua T. Lopez | Mechanical Technology Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- REFINED INDUSTRIAL THEME VARIABLES --- */
+        :root {
+            --navy: #0a192f;        
+            --navy-light: #112240;  
+            --slate: #8892b0;       
+            --white: #e6f1ff;        
+            --accent: #ffc107;      
+            --glass-bg: rgba(17, 34, 64, 0.7); 
+            --glass-border: rgba(255, 255, 255, 0.1); 
+            --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.2); 
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.3); 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--slate);
+            line-height: 1.6; /* Increased slightly for readability */
+            overflow-x: hidden;
+            background-color: var(--navy);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(255, 193, 7, 0.04) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(100, 255, 218, 0.04) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 2px;
+            border: 2px solid var(--accent);
+            padding: 6px 14px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+            background: rgba(255, 193, 7, 0.15);
+        }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a {
+            color: var(--slate); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+            transition: color 0.3s ease; position: relative;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -6px; left: 0;
+            background-color: var(--accent); transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .hamburger { display: none; color: var(--accent); font-size: 1.5rem; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero h2 {
+            color: var(--white);
+            font-size: 2rem; 
+            margin-bottom: 2px;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3rem; 
+            line-height: 1;
+            margin-bottom: 2px;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+            color: var(--accent);
+        }
+
+        .typing-text::after { content: '|'; animation: blink 1s infinite; }
+        
+        .hero p {
+            max-width: 700px;
+            margin: 10px auto;
+            font-size: 1.05rem;
+            color: #ccd6f6;
+        }
+
+        .hero-buttons {
+            margin-top: 40px;
+            display: flex; gap: 25px; justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px; border-radius: 4px; text-decoration: none;
+            font-weight: 600; font-size: .75rem; transition: all 0.3s ease; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn-primary { background: transparent; color: var(--accent); border: 3px solid var(--accent); }
+        .btn-primary:hover { background: rgba(255, 193, 7, 0.15); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 193, 7, 0.2); }
+        .btn-filled { background: var(--accent); color: var(--navy); border: 2px solid var(--accent); }
+        .btn-filled:hover { background: #ffca2c; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4); }
+
+        /* --- STATS BANNER --- */
+        .stats-bar {
+            background: rgba(17, 34, 64, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 35px 40px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow-soft);
+            border-bottom: 1px solid var(--glass-border);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .stats-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 30px; text-align: center;
+        }
+        .stat-item h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 5px; }
+        .stat-item p { font-size: 0.85rem; letter-spacing: .1px; color: var(--accent); text-transform: uppercase; }
+
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 45px 10%; } /* Adjusted padding for better fit */
+        
+        .section-title {
+            display: flex; align-items: center; max-width: 1200px; margin: 0 auto 30px auto;
+        }
+        .section-title h2 { font-size: 2rem; margin-right: 25px; color: var(--white); white-space: nowrap; }
+        .section-title::after {
+            content: ""; display: block; flex-grow: 1; height: 1px;
+            background: linear-gradient(to right, var(--slate), transparent); opacity: 0.4;
+        }
+
+        /* --- SKILLS SECTION --- */
+        #skills { padding-top: 1px; }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(255, 193, 7, 0.4);
+        }
+
+        .skill-title { font-size: 1.3rem; color: var(--white); margin-bottom: 15px; }
+        .skill-list { list-style-type: none; font-size: 0.95rem; color: #ccd6f6; }
+        .skill-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .skill-list i { color: var(--accent); }
+
+        /* --- EXPERIENCE TIMELINE --- */
+        .timeline-container { max-width: 900px; margin: 0 auto; }
+        .job {
+            border-left: 2px solid var(--glass-border); padding-left: 35px; margin-bottom: 1px; position: relative;
+        }
+        .job::before {
+            content: ''; position: absolute; left: -8px; top: 0; width: 14px; height: 14px;
+            background: var(--accent); border-radius: 50%; box-shadow: 0 0 12px rgba(255, 193, 7, 0.4);
+        }
+        .job-date { font-family: 'Rajdhani'; color: var(--accent); font-weight: 600; letter-spacing: 1.5px; font-size: 0.95rem; }
+        .job-title { font-size: 1.4rem; color: var(--white); margin: 8px 0; }
+        .job-company { margin-bottom: 15px; font-style: italic; color: #ccd6f6; font-size: 1.05rem; }
+        .job ul { padding-left: 20px; font-size: 0.95rem; color: #a8b2d1; list-style-type: disc; }
+        .job li { margin-bottom: 10px;}
+
+        /* --- FILTERABLE PROJECTS (HORIZONTAL SLIDER UPDATE) --- */
+        #projects { padding-top: 1px; width: 100%; overflow: hidden; }
+
+        .filter-container { text-align: center; margin-bottom: 40px; }
+        
+        .filter-btn {
+            background: transparent; border: none; color: var(--slate);
+            font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1rem;
+            margin: 0 15px; cursor: pointer; transition: all 0.3s ease;
+            text-transform: uppercase; letter-spacing: 1.5px; position: relative;
+            padding-bottom: 3px;
+        }
+        
+        .filter-btn::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+            background-color: var(--accent); transition: width 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active { color: var(--accent); }
+        .filter-btn:hover::after, .filter-btn.active::after { width: 100%; }
+
+        /* HORIZONTAL SLIDER CSS */
+        .projects-grid {
+            display: flex; /* Flex instead of Grid for horizontal flow */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            gap: 30px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding-bottom: 30px; /* Space for the scrollbar */
+            scroll-snap-type: x mandatory; /* Snap cards to position */
+            -webkit-overflow-scrolling: touch; /* Smooth scroll on mobile */
+        }
+
+        /* Custom Scrollbar for the Project Slider */
+        .projects-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+        .projects-grid::-webkit-scrollbar-track {
+            background: var(--navy-light); 
+            border-radius: 4px;
+        }
+        .projects-grid::-webkit-scrollbar-thumb {
+            background: var(--slate); 
+            border-radius: 4px;
+        }
+        .projects-grid::-webkit-scrollbar-thumb:hover {
+            background: var(--accent); 
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+            
+            /* SLIDER SPECIFIC SIZING */
+            min-width: 320px; /* Force card to have width */
+            max-width: 320px; 
+            scroll-snap-align: center; /* Snap logic */
+            flex-shrink: 0; /* Prevent squishing */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(255, 193, 7, 0.4);
+        }
+
+        .card-img-container {
+            position: relative; overflow: hidden; height: 200px; /* Reduced slightly for proportion */
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .card-img-container img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+        }
+        .project-card:hover .card-img-container img { transform: scale(1.08); }
+
+        .zoom-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 2.2rem; color: var(--white); opacity: 0; transition: opacity 0.3s ease;
+            background: rgba(0,0,0,0.6); padding: 15px; border-radius: 50%;
+        }
+        .card-img-container:hover .zoom-icon { opacity: 1; }
+
+        .card-content { padding: 25px 20px; }
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .folder-icon { color: var(--accent); font-size: 1.6rem; }
+        .tech-list { font-size: 0.75rem; font-family: 'Rajdhani', sans-serif; letter-spacing: 1.2px; color: var(--slate); border: 1px solid var(--slate); padding: 4px 10px; border-radius: 20px; }
+
+        .project-title { font-size: 1.3rem; color: var(--white); margin-bottom: 10px; font-weight: 700; }
+        .project-desc { font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; color: #ccd6f6; }
+
+
+        /* --- MODAL (RESIZED & REFINED) --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; 
+            background-color: rgba(10, 25, 47, 0.98); /* Dark background behind modal */
+            backdrop-filter: blur(6px);
+            animation: fadeIn 0.3s ease;
+            
+            /* Center the modal box */
+            display: none; /* Controlled by JS */
+            /* Flex centering for the modal content */
+            align-items: center; 
+            justify-content: center;
+        }
+        
+        /* The container itself (The box) */
+        .modal-content {
+            background: var(--navy); /* Solid bg inside modal */
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            border-radius: 12px;
+            
+            /* SIZE CONTROLS - EXACT PROPORTIONS */
+            width: 90%;
+            max-width: 700px; /* Reduced from 1000px */
+            max-height: 85vh; /* Never taller than 85% of screen */
+            overflow-y: auto; /* Internal scrolling enabled */
+            
+            margin: auto; /* Centering helper */
+            padding: 30px;
+            position: relative; /* For absolute positioning of close button */
+        }
+
+        /* Custom Scrollbar for Modal content */
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: var(--navy); }
+        .modal-content::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 4px; border: 1px solid var(--slate); }
+
+        /* The Close Button - FIXED POSITIONING relative to Modal Box */
+        .close-btn {
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            color: var(--accent);
+            font-size: 1.5rem; /* Smaller, cleaner */
+            font-weight: bold; cursor: pointer; z-index: 2100;
+            background: rgba(17, 34, 64, 0.85); 
+            border: 1px solid var(--accent);
+            border-radius: 50%; width: 40px; height: 40px; 
+            text-align: center; line-height: 38px;
+            transition: all 0.3s ease;
+        }
+        .close-btn:hover { background: var(--accent); color: var(--navy); transform: rotate(90deg); }
+
+        .modal-header { margin-bottom: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; text-align: center; }
+        .modal-header h2 { font-size: 2rem; color: var(--white); }
+        .modal-header p { color: var(--accent); letter-spacing: 1px; margin-top: 5px; font-size: 0.9rem; text-transform: uppercase; }
+
+        .modal-grid { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 30px; 
+        }
+
+        .step-container {
+            background: var(--navy-light); padding: 25px; border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-soft);
+        }
+        .step-title { color: var(--accent); margin-bottom: 15px; font-size: 1.2rem; }
+        .step-img { width: 100%; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 15px; box-shadow: var(--shadow-soft); }
+        .step-desc { color: #ccd6f6; font-size: 0.9rem; line-height: 1.5; }
+        .step-desc strong { color: var(--white); }
+
+        .result-highlight {
+            color: var(--accent); font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; margin-top: 15px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center; padding: 50px 40px; background: rgba(10, 25, 47, 0.95);
+            font-size: 0.9rem; border-top: 1px solid var(--glass-border);
+        }
+        footer p { color: var(--slate); }
+        footer p:nth-child(2) { margin-top: 8px; font-size: 0.8rem; }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            /* Projects grid handles itself via Flexbox now */
+            .skills-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 30px; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 60px; left: 0; background: var(--navy-light); width: 100%;
+                padding: 30px 0; text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+                gap: 25px;
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+            .hero { padding: 0 20px; height: 80vh; }
+            .hero h1 { font-size: 1.5rem; }
+            .hero-buttons { flex-direction: column; gap: 20px; }
+            .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+            .section-title h2 { font-size: 1.8rem; }
+            .timeline-container { padding: 0 20px; }
+            
+            /* Adjust Modal for Mobile */
+            .modal-content { width: 95%; max-height: 80vh; padding: 20px; }
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">JL.TECH</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=joshualopez2274@gmail.com" style="color:var(--accent)" target="_blank" rel="noopener noreferrer">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h2>Joshua T. Lopez</h2>
+            <h1>Mechanical Technologist<br>Specializing in <span class="typing-text" style="color:var(--white)"></span></h1>
+            <p>
+                Experienced in translating complex, field-worn heavy equipment components into precision-manufactured parts. Expertise in bridging reverse engineering with foundry quality control to achieve optimal production outcomes.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Portfolio</a>
+                <a href="https://drive.google.com/file/d/1BQdFbc9jJy0ViMQpRgaPEt2MigR0d4M8/view?usp=drive_link" class="btn btn-filled" target="_blank" rel="noopener noreferrer">Download my resume</a>
+                <a href="https://www.linkedin.com/in/lopez-joshua-t-2274234234243423423423/" class="btn btn-filled" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Components Reverse Engineered</p>
+            </div>
+            <div class="stat-item">
+                <h3>150+</h3>
+                <p>Metal Batches Analyzed</p>
+            </div>
+            <div class="stat-item">
+                <h3>95%</h3>
+                <p>QA Compliance Rate</p>
+            </div>
+            <div class="stat-item">
+                <h3>10%</h3>
+                <p>Rework Reduction</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="experience">
+        <div class="section-title">
+            <h2>Professional Experience</h2>
+        </div>
+        <div class="timeline-container">
+            
+            <div class="job">
+                <span class="job-date">July 2025 – Present</span>
+                <h3 class="job-title">Reverse Engineering & Metallurgical QA Technologist</h3>
+                <p class="job-company">GCast Incorporated | Quezon City, Philippines</p>
+                <ul>
+                    <li>Led drafting for mining wear components using on-site measurements and Autodesk Inventor.</li>
+                    <li>Conducted chemical composition analysis on 150+ metal batches to ensure compliance with JIS standards.</li>
+                    <li>Inspect finished wooden patterns, templates, and casted components for dimensional conformance, identifying and flagging
+tolerance violations before production release to prevent downstream casting defects.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <span class="job-date">February 2025 – June 2025</span>
+                <h3 class="job-title">Engineering Intern</h3>
+                <p class="job-company">MOOG Controls Corp. | Baguio City, Philippines</p>
+                <ul>
+                    <li>Operated Mazak and Okuma CNC machinery for precision aerospace valve production.</li>
+                    <li>Utilized Zeiss CMM and Micro-Hite gauges for tolerance verification.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-title">
+            <h2>Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3 class="skill-title">CAD & Reverse Engineering</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-drafting-compass"></i>Autodesk Inventor & Autocad</li>
+                    <li><i class="fas fa-brain"></i>Ilogic</li>
+                    <li><i class="fas fa-pencil-ruler"></i>On-site Dimensional Capture</li>
+                    <li><i class="fas fa-pencil-ruler"></i>Measure-to-CAD</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-title">Manufacturing & QA</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-book"></i>Foundry Process Knowledge</li>
+                    <li><i class="fas fa-drafting-compass"></i>Pattern & Template Verification</li>
+                    <li><i class="fas fa-check-double"></i>Casting Defect Identification</li>
+                    <li><i class="fas fa-ruler-combined"></i>GD&T Fundamentals</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-title">Metallurgical Quality Control</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-microscope"></i>Optical Emission Spectrometry</li>
+                    <li><i class="fas fa-search"></i>Chemical Composition Analysis</li>
+                    <li><i class="fas fa-tools"></i>Lab Equipment Calibration</li>
+                    <li><i class="fas fa-industry"></i>Bruker Q4 TASMAN</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-title">
+            <h2>Featured Projects</h2>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+            <button class="filter-btn" onclick="filterProjects('cad')">Reverse Engineering</button>
+            <button class="filter-btn" onclick="filterProjects('automation')">Ilogic</button>
+        </div>
+
+        <div class="projects-grid">
+            
+            <div class="project-card" data-category="cad" onclick="openBowlModal()">
+                <div class="card-img-container">
+                    <img src="https://i.imgur.com/PsGKUAi.png" alt="CAD drawing of Bowl Liner">
+                    <i class="fas fa-expand-arrows-alt zoom-icon"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-top">
+                        <i class="far fa-folder-open folder-icon"></i>
+                        <div class="tech-list">Inventor • AutoCAD</div>
+                    </div>
+                    <h3 class="project-title">Bowl Liner</h3>
+                    <p class="project-desc">Comprehensive reverse engineering of an 800kg crusher liner. Click to view full details.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="cad" onclick="openJawplateModal()">
+                <div class="card-img-container">
+                    <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/JAWPLATE%20PORTFOLIO.png" alt="CAD drawing of Jawplate">
+                    <i class="fas fa-expand-arrows-alt zoom-icon"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-top">
+                        <i class="far fa-folder-open folder-icon"></i>
+                        <div class="tech-list">Inventor • AutoCAD</div>
+                    </div>
+                    <h3 class="project-title">Jawplate Crushers</h3>
+                    <p class="project-desc">Reverse engineering of heavy-duty jawplate crusher components for extended wear life.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="automation" onclick="openIlogicModal()">
+                <div class="card-img-container">
+                    <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/DIAMETER%20SYMBOL.png" alt="CAD drawing of Jawplate">
+                    <i class="fas fa-expand-arrows-alt zoom-icon"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-top">
+                        <i class="fas fa-cogs folder-icon"></i>
+                        <div class="tech-list">Inventor API • VB.NET</div>
+                    </div>
+                    <h3 class="project-title">iLogic Design Automation</h3>
+                    <p class="project-desc">Parametric drawing generators and functions that acts as custom function, mass properties, and shrinkage scales via user inputs.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <div id="bowlModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBowlModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Bowl Liner</h2>
+                <p>Complete Reverse Engineering Workflow</p>
+            </div>
+
+            <div class="modal-grid">
+                <div class="step-container">
+                    <h3 class="step-title">Step 1: Field Measurement</h3>
+                    <img src="https://i.imgur.com/tFqxgjv.jpeg" class="step-img" alt="Field measurement of worn liner component">
+                    <p class="step-desc">
+                        <strong>Challenge:</strong> Slightly worn 800kg liner with irregular surfaces due to abrasion.
+                        <br><br>
+                        <strong>Approach:</strong> Employed calipers, measuring tape, and digital inclinometer to capture 30 internal ribs.
+                    </p>
+                </div>
+
+                <div class="step-container">
+                    <h3 class="step-title">Step 2: Detail Capture</h3>
+                    <img src="https://i.imgur.com/HQOeqXp.jpeg" class="step-img" alt="Detailed rib measurement and analysis">
+                    <p class="step-desc">
+                        <strong>Engineering Insight:</strong> Internal ribs are critical for the fitting and locking mechanism; analyzed and measured ribs that showed no signs of wear.
+                    </p>
+                </div>
+
+                <div class="step-container">
+                    <h3 class="step-title">Step 3: CAD Reconstruction</h3>
+                    <img src="https://i.imgur.com/PsGKUAi.png" class="step-img" alt="Final CAD drawing and model">
+                    <p class="step-desc">
+                        <strong>Solution:</strong> Reconstructed geometry in Autodesk Inventor with 1.5° draft for mold release; generated 2D drawings with tolerance specifications.
+                        <br><br>
+                        <span class="result-highlight">
+                            <i class="fas fa-check-circle"></i> Outcome: Zero dimensional rejections on first production pour.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="jawplateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeJawplateModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Jawplate Crushers</h2>
+                <p>Reverse Engineering & Field Measurements</p>
+            </div>
+
+            <div class="modal-grid">
+                <div class="step-container">
+                    <h3 class="step-title">Step 1: Wear Geometry Analysis</h3>
+                    <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/JAWPLATE%20GEOM%201.jpg" class="step-img" alt="Wear Pattern Analysis Preview">
+                    <p class="step-desc">
+                        <strong>Challenge:</strong> Worn jawplates with significant material loss, making original dimensions difficult to determine.
+                    </p>
+                </div>
+
+                <div class="step-container">
+                    <h3 class="step-title">Step 2: Dimensional Reconstruction</h3>
+                    <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/JAWPLATE%20GEOM%202.jpg" class="step-img" alt="Wear Pattern Analysis Preview">
+                    <p class="step-desc">
+                        <strong>Engineering Insight:</strong> Utilized remaining non-worn surfaces and symmetry to reconstruct the jawplate's profile in CAD.
+                    </p>
+                </div>
+
+                <div class="step-container">
+                    <h3 class="step-title">Step 3: Material & Design Optimization</h3>
+                    <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/JAWPLATE%20PORTFOLIO.png" class="step-img" alt="Wear Pattern Analysis Preview">
+                    <p class="step-desc">
+                        <strong>Solution:</strong> Created a 3D CAD model with optimized profiles for improved crushing efficiency and specified Manganese steel alloy.
+                        <br><br>
+                        <span class="result-highlight">
+                            <i class="fas fa-check-circle"></i> Outcome: Produced manufacturing-ready drawings.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ilogicModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeIlogicModal()">&times;</span>
+            <div class="modal-header">
+                <h2>iLogic Automation</h2>
+                <p>Parametric Drawing Automation Workflow</p>
+            </div>
+
+            <div class="modal-grid">
+                
+                <div class="step-container">
+                    <h3 class="step-title">Shrinkage Calculation Tool</h3>
+                    <img src="https://github.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/blob/main/SHRINKAGE.png?raw=true" class="step-img" alt="iLogic Shrinkage Calculator Interface">
+                    <p class="step-desc">
+                        <strong>Functionality:</strong> Custom iLogic rule allowing users to select a dimension and alloy. Automatically calculates shrinkage-compensated values.
+                        <br><br>
+                        <span class="result-highlight">
+                            <i class="fas fa-check-circle"></i> Outcome: Eliminates manual calculations and casting defects.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="step-container">
+                    <h3 class="step-title">Model Browser Organizer</h3>
+                    <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/ORGANIZER.png" class="step-img" style="width: 50%; display: block; margin: 0 auto;" alt="iLogic Organizer Interface">
+                    <p class="step-desc">
+                        <strong>Functionality:</strong> Automated script to group and sort Features, Sketches, and Work Planes.
+                    </p>
+                </div>
+
+                <div class="step-container">
+                    <h3 class="step-title">Match Properties</h3>
+                    <div style="display: flex; gap: 10px; justify-content: space-between;">
+                        <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/MATCH%20PROPERTIES%201.png" class="step-img" style="width: 48%;" alt="Match Prop 1">
+                        <img src="https://raw.githubusercontent.com/joshualopez2274-blip/JOSHUA-PORTFOLIO/refs/heads/main/MATCH%20PROPERTIES%202.png" class="step-img" style="width: 48%;" alt="Match Prop 2">
+                    </div>
+                    <p class="step-desc">
+                        <strong>Functionality:</strong> Mimics AutoCAD's 'Match Properties' to instantly apply attributes from one line to another.
+                        <br><br>
+                        <span class="result-highlight">
+                            <i class="fas fa-check-circle"></i> Outcome: Significantly accelerated detailing process.
+                        </span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Joshua T. Lopez. All rights reserved.</p>
+        <p>Built with HTML • Hosted on GitHub Pages</p>
+        <p> <i class="fas fa-envelope"></i>joshualopez2274@gmail.com</p>
+        <p> <i class="fas fa-hashtag"></i>+63-9653679070</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+            document.querySelector('.hamburger i').classList.toggle('fa-bars');
+            document.querySelector('.hamburger i').classList.toggle('fa-times');
+        }
+
+        // Typing Effect
+        const textElement = document.querySelector('.typing-text');
+        const words = ["Reverse Engineering", "Foundry Design", "QA Analysis", "CAD Modeling"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                textElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(type, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, 300);
+            } else {
+                setTimeout(type, isDeleting ? 40 : 80);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // Project Filter (UPDATED FOR FLEXBOX SLIDER)
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const btns = document.querySelectorAll('.filter-btn');
+            
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block'; // 'block' is fine inside a flex container
+                    card.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none'; // Removes it from flex flow
+                }
+            });
+        }
+
+        // Modal Logic
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex'; // Use FLEX to center the content
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Explicit bindings for the specific buttons
+        function openBowlModal() { openModal('bowlModal'); }
+        function closeBowlModal() { closeModal('bowlModal'); }
+
+        function openJawplateModal() { openModal('jawplateModal'); }
+        function closeJawplateModal() { closeModal('jawplateModal'); }
+
+        function openIlogicModal() { openModal('ilogicModal'); }
+        function closeIlogicModal() { closeModal('ilogicModal'); }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
